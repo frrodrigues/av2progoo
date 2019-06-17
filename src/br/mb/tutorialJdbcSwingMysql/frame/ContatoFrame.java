@@ -20,9 +20,10 @@ public class ContatoFrame extends JFrame {
     private JButton btnSalvar, btnAlterar, btnExcluir, btnClear, btnLocalizar;
     private JButton btnPrimeiro, btnProximo, btnAnterior, btnUltimo;
 
-    private List contatoList = new ContatoController().listaContatos();
+    private List <Contato> contatoList = new ContatoController().listaContatos();
     private int registroAtual = 0;
 	private Long key;
+	private JButton btnAgendarConsulta;
 
     public ContatoFrame() {
         super("Contatos");
@@ -50,11 +51,11 @@ public class ContatoFrame extends JFrame {
 
         txtNome = new JTextField();
         txtTel = new JTextField();
-       txtCpf = new JTextField();
+        txtCpf = new JTextField();
 
         txtNome.setBounds(10, 25, 265, 20);
         txtTel.setBounds(10, 65, 265, 20);
-       txtCpf.setBounds(10, 105, 265, 20);
+        txtCpf.setBounds(10, 105, 265, 20);
 
         tela.add(txtNome);
         tela.add(txtTel);
@@ -69,9 +70,9 @@ public class ContatoFrame extends JFrame {
         btnProximo = new JButton(">>");
         btnUltimo = new JButton(">|");
 
-        btnSalvar.setBounds(280, 25, 80, 20);
-        btnAlterar.setBounds(280, 65, 80, 20);
-        btnExcluir.setBounds(280, 105, 80, 20);
+        btnSalvar.setBounds(299, 25, 80, 20);
+        btnAlterar.setBounds(299, 65, 80, 20);
+        btnExcluir.setBounds(299, 105, 80, 20);
 
         tela.add(btnSalvar);
         tela.add(btnAlterar);
@@ -93,16 +94,25 @@ public class ContatoFrame extends JFrame {
         lbLocalizar.setBounds(10, 160, 220, 20);
 
         txtLocalizar = new JTextField();
-        txtLocalizar.setBounds(10, 180, 220, 20);
+        txtLocalizar.setBounds(10, 180, 175, 20);
 
         btnLocalizar = new JButton("Ir");
-        btnLocalizar.setBounds(230, 180, 55, 20);
+        btnLocalizar.setBounds(195, 180, 55, 20);
 
         tela.add(lbLocalizar);
         tela.add(txtLocalizar);
         tela.add(btnLocalizar);
+        
+        btnAgendarConsulta = new JButton("Agendar");
+        btnAgendarConsulta.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		onClickAgendar();
+        	}
+        });
+        btnAgendarConsulta.setBounds(273, 169, 106, 31);
+        getContentPane().add(btnAgendarConsulta);
 
-        setSize(400, 250);
+        setSize(416, 250);
         setVisible(true);
         setLocationRelativeTo(null);
 
@@ -289,6 +299,11 @@ public class ContatoFrame extends JFrame {
 				e.getLocalizedMessage()
 			);
         }
+    }
+    private void onClickAgendar() {
+    	Agenda telaag = new Agenda();
+		self.dispose();
+		telaag.setVisible(true);	
     }
 
     private void clearFields() {
