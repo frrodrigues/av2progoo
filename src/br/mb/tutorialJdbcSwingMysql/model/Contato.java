@@ -8,6 +8,7 @@ public class Contato {
 	private String nome;
 	private int tel;
 	private int cpf;
+	
 	public Long getId() {
 		return id;
 	}

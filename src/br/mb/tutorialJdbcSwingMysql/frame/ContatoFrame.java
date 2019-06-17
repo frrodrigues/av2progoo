@@ -12,6 +12,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.lang.Integer.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+
 
 public class ContatoFrame extends JFrame {
 
@@ -102,13 +106,15 @@ public class ContatoFrame extends JFrame {
         tela.add(lbLocalizar);
         tela.add(txtLocalizar);
         tela.add(btnLocalizar);
-        
+        ContatoFrame self = this;
         btnAgendarConsulta = new JButton("Agendar");
         btnAgendarConsulta.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		onClickAgendar();
-        	}
-        });
+        	public void actionPerformed(ActionEvent arg0) {
+    	    				Agenda ag = new Agenda();
+    						self.dispose();
+    						ag.setVisible(true);	
+    						}
+    	});
         btnAgendarConsulta.setBounds(273, 169, 106, 31);
         getContentPane().add(btnAgendarConsulta);
 
@@ -300,11 +306,7 @@ public class ContatoFrame extends JFrame {
 			);
         }
     }
-    private void onClickAgendar() {
-    	Agenda telaag = new Agenda();
-		self.dispose();
-		telaag.setVisible(true);	
-    }
+  
 
     private void clearFields() {
         txtNome.setText("");

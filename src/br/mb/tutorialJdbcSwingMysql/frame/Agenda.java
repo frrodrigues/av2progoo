@@ -8,7 +8,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.Font;
 
-public class Agenda {
+public class Agenda extends JFrame{
 
 	private JFrame frame;
 	private JTextField textField;
