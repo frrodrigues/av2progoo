@@ -13,10 +13,7 @@ import java.util.List;
 
 public class ContatoController extends Contato {
 
-    //private Date formatarData(String data) throws ParseException {
-    //    DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-    //    return new Date( formatter.parse(data).getTime() );
-    //}
+  
 
     public void salvar(String nome, int tel, int cpf) 
 		throws SQLException, ParseException 

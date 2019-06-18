@@ -6,7 +6,7 @@ public class Consulta {
 	private Long id;
 	private String dtcons;
 	private String hora;
-	private Long idcontato;
+	private String nome;
 	
 	public Long getId() {
 		return id;
@@ -26,11 +26,11 @@ public class Consulta {
 	public void setHora(String hora) {
 		this.hora = hora;
 	}
-	public Long getIdcontato() {
-		return idcontato;
+	public String getNome() {
+		return nome;
 	}
-	public void setIdcontato(Long idcontato) {
-		this.idcontato = idcontato;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
-
+	
 }

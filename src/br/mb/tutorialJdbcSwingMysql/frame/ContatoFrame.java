@@ -107,13 +107,16 @@ public class ContatoFrame extends JFrame {
         tela.add(txtLocalizar);
         tela.add(btnLocalizar);
         ContatoFrame self = this;
+        
         btnAgendarConsulta = new JButton("Agendar");
         btnAgendarConsulta.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
+        		System.err.println();
     	    				Agenda ag = new Agenda();
     						self.dispose();
     						ag.setVisible(true);	
     						}
+        	
     	});
         btnAgendarConsulta.setBounds(273, 169, 106, 31);
         getContentPane().add(btnAgendarConsulta);

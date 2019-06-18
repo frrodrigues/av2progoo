@@ -11,25 +11,22 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
-public class ConsultaController {
 
-	/*private Date formatarData(String data) throws ParseException {
-      DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-       return new Date( formatter.parse(data).getTime() );
-    	}*/
-	
-    public void salvar(String dtcons, String hora, Long idcontato) 
+public class ConsultaController extends Consulta{
+
+
+    public void salvar(String dtcons, String hora, String nome) 
 		throws SQLException, ParseException 
 	{
         Consulta consulta = new Consulta();
         consulta.setDtcons(dtcons);
         consulta.setHora(hora);
-        consulta.setIdcontato(idcontato);
+        consulta.setNome(nome);
 
         new ConsultaDAO().salvar(consulta);
     }
 
-    public void alterar(long id, String dtcons, String hora, Long idcontato) 
+    public void alterar(long id, String dtcons, String hora, String nome) 
 		throws ParseException, SQLException 
 	{
         
@@ -37,15 +34,15 @@ public class ConsultaController {
         consulta.setId(id);
         consulta.setDtcons(dtcons);
         consulta.setHora(hora);
-        consulta.setIdcontato(idcontato);
+        consulta.setNome(nome);
 
         new ConsultaDAO().alterar(consulta);
     }
 
-    public List listaContatos() {
+    public List listaConsultas() {
         ConsultaDAO dao = new ConsultaDAO();
         try {
-            return dao.findContatos();
+            return dao.findConsultas();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, 
 				"Problemas ao localizar a consulta" + 
@@ -59,7 +56,7 @@ public class ConsultaController {
         new ConsultaDAO().excluir(id);
     }
 
-    public Consulta buscaConsultapornome(String nome) throws SQLException {
+    public Consulta buscaConsultaporNome(String nome) throws SQLException {
         ConsultaDAO dao = new ConsultaDAO();
         return dao.findByName(nome);
     }
